@@ -2,7 +2,7 @@ import { CourseHero, KeyPoints, Curriculum, modal, Navbar, Footer } from "@compo
 import { getAllCourses } from "@content/fetcher";
 
 
-export default function Course() {
+export default function Course({course}) {
 
 
     return (
@@ -10,7 +10,11 @@ export default function Course() {
             <Navbar/>
             
             <div className="py-7 mt-7">
-            <CourseHero />
+            <CourseHero
+            title={course.title}
+            description={course.description}
+            image={course.coverImage}
+            />
             </div>
 
 
