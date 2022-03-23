@@ -19,8 +19,10 @@ export default function Course({course}) {
 
 
 
-            <KeyPoints />
-            <Curriculum />
+            <KeyPoints 
+            points={course.wsl}
+            />
+            <Curriculum locked={true}/>
             <modal />
             <Footer/>
         </div>
@@ -40,7 +42,7 @@ export function getStaticPaths(){
     }
 }
 
-export function getStaticProps(){
+export function getStaticProps({params}){
     const {data} = getAllCourses()
     const course = data.filter(c=> c.slug=== params.slug)[0]
     return{
